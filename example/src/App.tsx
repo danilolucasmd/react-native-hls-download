@@ -1,17 +1,22 @@
 import * as React from 'react';
-import { StyleSheet, View, Text } from 'react-native';
+import { StyleSheet, View, Button } from 'react-native';
 import HlsDownload from 'react-native-hls-download';
 
 export default function App() {
-  const [result, setResult] = React.useState<number | undefined>();
+  const handleDownload = () => {
+    HlsDownload.setupAssetDownload(
+      'http://demo.unified-streaming.com/video/tears-of-steel/tears-of-steel.ism/.m3u8'
+    );
+  };
 
-  React.useEffect(() => {
-    HlsDownload.multiply(3, 7).then(setResult);
-  }, []);
+  const handlePlay = () => {
+    HlsDownload.playOfflineAsset().then(console.warn);
+  };
 
   return (
     <View style={styles.container}>
-      <Text>Result: {result}</Text>
+      <Button onPress={handleDownload} title="Download" />
+      <Button onPress={handlePlay} title="Play" />
     </View>
   );
 }

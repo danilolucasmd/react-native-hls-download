@@ -1,7 +1,8 @@
 import { NativeModules } from 'react-native';
 
 type HlsDownloadType = {
-  multiply(a: number, b: number): Promise<number>;
+  setupAssetDownload(url: string): void;
+  playOfflineAsset(): Promise<string>;
 };
 
 const { HlsDownload } = NativeModules;
