@@ -1,6 +1,6 @@
 # react-native-hls-download
 
-Download hls files for offline use
+Download hls for offline use
 
 ## Installation
 
