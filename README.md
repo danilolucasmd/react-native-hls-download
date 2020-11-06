@@ -15,7 +15,11 @@ import HlsDownload from "react-native-hls-download";
 
 // ...
 
-const result = await HlsDownload.multiply(3, 7);
+// Setup and download
+HlsDownload.setupAssetDownload('http://demo.unified-streaming.com/video/tears-of-steel/tears-of-steel.ism/.m3u8'); // void
+
+// Return the path to the local asset
+HlsDownload.playOfflineAsset().then(console.warn); // string
 ```
 
 ## Contributing
